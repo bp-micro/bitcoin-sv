@@ -94,7 +94,7 @@ static bool
 CheckHeaderMagicAndCommand(const CMessageHeader &header,
                            const CMessageHeader::MessageMagic &magic) {
     // Check start string
-    if (memcmp(pchMessageStart, pchMessageStartIn, MESSAGE_START_SIZE) != 0)
+    if (memcmp(header.pchMessageStart, magic, CMessageHeader::MESSAGE_START_SIZE) != 0)
         return false;
 
     // Check the command string for errors
