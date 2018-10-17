@@ -189,7 +189,7 @@ class CSeederNode {
         }
 
         do {
-            CDataStream::iterator pstart = std::search(
+            CDataStream::iterator pstart = search(
                 vRecv.begin(), vRecv.end(), BEGIN(netMagic), END(netMagic));
             uint32_t nHeaderSize = GetSerializeSize(
                 CMessageHeader(netMagic), vRecv.GetType(), vRecv.GetVersion());

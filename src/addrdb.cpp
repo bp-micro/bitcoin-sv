@@ -94,10 +94,8 @@ bool CBanDB::Read(banmap_t &banSet) {
         ssBanlist >> FLATDATA(pchMsgTmp);
 
         // ... verify the network matches ours
-        if (memcmp(pchMsgTmp, std::begin(chainParams.DiskMagic()),
-                   sizeof(pchMsgTmp))) {
+        if (memcmp(pchMsgTmp, Params().DiskMagic(), sizeof(pchMsgTmp)))
             return error("%s: Invalid network magic number", __func__);
-        }
 
         // de-serialize ban data
         ssBanlist >> banSet;
@@ -190,10 +188,8 @@ bool CAddrDB::Read(CAddrMan &addr, CDataStream &ssPeers) {
         ssPeers >> FLATDATA(pchMsgTmp);
 
         // ... verify the network matches ours
-        if (memcmp(pchMsgTmp, std::begin(chainParams.DiskMagic()),
-                   sizeof(pchMsgTmp))) {
+        if (memcmp(pchMsgTmp, Params().DiskMagic(), sizeof(pchMsgTmp)))
             return error("%s: Invalid network magic number", __func__);
-        }
 
         // de-serialize address data into one CAddrMan object
         ssPeers >> addr;
