@@ -6,6 +6,9 @@
 #ifndef BITCOIN_RANDOM_H
 #define BITCOIN_RANDOM_H
 
+#ifdef WIN32
+#include "compat.h"
+#endif
 #include "crypto/chacha20.h"
 #include "crypto/common.h"
 #include "uint256.h"

@@ -1,3 +1,4 @@
+
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
@@ -42,7 +43,7 @@
 std::atomic<int64_t> nTimeBestReceived(0);
 
 struct IteratorComparator {
-    template <typename I> bool operator()(const I &a, const I &b) {
+    template <typename I> bool operator()(const I &a, const I &b) const {
         return &(*a) < &(*b);
     }
 };

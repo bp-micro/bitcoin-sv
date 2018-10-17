@@ -75,7 +75,7 @@ TestingSetup::TestingSetup(const std::string &chainName)
     const Config &config = GlobalConfig::GetConfig();
     RegisterAllRPCCommands(tableRPC);
     ClearDatadirCache();
-    pathTemp = GetTempPath() / strprintf("test_bitcoin_%lu_%i",
+    pathTemp = fs::temp_directory_path() / strprintf("test_bitcoin_%lu_%i",
                                          (unsigned long)GetTime(),
                                          (int)(InsecureRandRange(100000)));
     fs::create_directories(pathTemp);
